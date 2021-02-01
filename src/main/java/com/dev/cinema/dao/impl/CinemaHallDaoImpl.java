@@ -4,7 +4,6 @@ import com.dev.cinema.dao.CinemaHallDao;
 import com.dev.cinema.exception.DataProcessingException;
 import com.dev.cinema.lib.Dao;
 import com.dev.cinema.model.CinemaHall;
-import com.dev.cinema.model.Movie;
 import com.dev.cinema.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
@@ -20,6 +19,7 @@ public class CinemaHallDaoImpl implements CinemaHallDao {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
+            session.persist(cinemaHall);
             transaction.commit();
             return cinemaHall;
         } catch (Exception e) {
@@ -37,7 +37,8 @@ public class CinemaHallDaoImpl implements CinemaHallDao {
     @Override
     public List<CinemaHall> getAll() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query<CinemaHall> getAllCinemaHallsQuery = session.createQuery("FROM CinemaHall", CinemaHall.class);
+            Query<CinemaHall> getAllCinemaHallsQuery = session
+                    .createQuery("FROM CinemaHall", CinemaHall.class);
             return getAllCinemaHallsQuery.getResultList();
         } catch (Exception e) {
             throw new DataProcessingException("Can't get Cinema Halls", e);
