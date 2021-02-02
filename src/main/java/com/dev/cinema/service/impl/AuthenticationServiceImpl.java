@@ -7,7 +7,6 @@ import com.dev.cinema.model.User;
 import com.dev.cinema.service.AuthenticationService;
 import com.dev.cinema.service.UserService;
 import com.dev.cinema.util.HashUtil;
-
 import java.util.Optional;
 
 @Service
@@ -33,6 +32,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
-        return user;
+        return userService.add(user);
     }
 }
