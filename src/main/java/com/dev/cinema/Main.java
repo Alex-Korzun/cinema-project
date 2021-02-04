@@ -65,7 +65,7 @@ public class Main {
 
         OrderService orderService = (OrderService) injector.getInstance(OrderService.class);
         shoppingCartService.addSession(movieSession, user);
-        orderService.completeOrder(shoppingCart);
+        orderService.completeOrder(shoppingCartService.getByUser(user));
         System.out.println(orderService.getOrdersHistory(user));
     }
 }
