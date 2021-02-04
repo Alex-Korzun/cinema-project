@@ -60,9 +60,11 @@ public class Main {
         ShoppingCart shoppingCart = shoppingCartService.getByUser(user);
         System.out.println(shoppingCart.toString());
         shoppingCartService.clear(shoppingCartService.getByUser(user));
+        System.out.println("--------------------------");
         System.out.println(shoppingCartService.getByUser(user));
 
         OrderService orderService = (OrderService) injector.getInstance(OrderService.class);
+        shoppingCartService.addSession(movieSession, user);
         orderService.completeOrder(shoppingCart);
         System.out.println(orderService.getOrdersHistory(user));
     }
