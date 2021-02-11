@@ -4,7 +4,6 @@ import com.dev.cinema.dao.OrderDao;
 import com.dev.cinema.exception.DataProcessingException;
 import com.dev.cinema.model.Order;
 import com.dev.cinema.model.User;
-import com.dev.cinema.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
