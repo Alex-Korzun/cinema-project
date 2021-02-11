@@ -1,8 +1,8 @@
-package com.dev.cinema.service.impl;
+package com.dev.cinema.security.impl;
 
 import com.dev.cinema.exception.AuthenticationException;
 import com.dev.cinema.model.User;
-import com.dev.cinema.service.AuthenticationService;
+import com.dev.cinema.security.AuthenticationService;
 import com.dev.cinema.service.ShoppingCartService;
 import com.dev.cinema.service.UserService;
 import com.dev.cinema.util.HashUtil;
