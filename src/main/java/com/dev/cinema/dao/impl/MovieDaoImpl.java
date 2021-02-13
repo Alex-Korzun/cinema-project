@@ -2,11 +2,9 @@ package com.dev.cinema.dao.impl;
 
 import com.dev.cinema.dao.MovieDao;
 import com.dev.cinema.exception.DataProcessingException;
-import com.dev.cinema.model.CinemaHall;
 import com.dev.cinema.model.Movie;
 import java.util.List;
 import java.util.Optional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

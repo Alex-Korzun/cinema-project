@@ -12,7 +12,7 @@ public class MovieMapper {
         movieResponseDto.setId(movie.getId());
         movieResponseDto.setTitle(movieResponseDto.getTitle());
         movieResponseDto.setDescription(movieResponseDto.getDescription());
-        return  movieResponseDto;
+        return movieResponseDto;
     }
 
     public Movie fromDto(MovieRequestDto movieRequestDto) {
