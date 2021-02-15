@@ -7,10 +7,14 @@ import com.dev.cinema.service.ShoppingCartService;
 import com.dev.cinema.service.UserService;
 import com.dev.cinema.service.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/orders")
@@ -33,7 +37,15 @@ public class OrderController {
 
     @PostMapping("/complete")
     public OrderResponseDto complete(@RequestParam Long id) {
-        OrderResponseDto orderResponseDto = orderMapper
-                .toDto(orderService.completeOrder(shoppingCartService.getByUser(userService.get)))
+        return orderMapper
+                .toDto(orderService.completeOrder(shoppingCartService.getByUser(userService.get(id))));
+    }
+
+    @GetMapping
+    public List<OrderResponseDto> getOrdersById(@RequestParam Long id) {
+        return orderService.getOrdersHistory(userService.get(id))
+                .stream()
+                .map(orderMapper::toDto)
+                .collect(Collectors.toList());
     }
 }
