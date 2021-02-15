@@ -2,6 +2,7 @@ package com.dev.cinema.dao.impl;
 
 import com.dev.cinema.dao.UserDao;
 import com.dev.cinema.exception.DataProcessingException;
+import com.dev.cinema.model.Order;
 import com.dev.cinema.model.User;
 import java.util.Optional;
 import org.hibernate.Session;
@@ -52,6 +53,18 @@ public class UserDaoImpl implements UserDao {
             return getUserByEmailQuery.uniqueResultOptional();
         } catch (Exception e) {
             throw new DataProcessingException("Can't get User by email " + email, e);
+        }
+    }
+
+    @Override
+    public Optional<User> get(Long id) {
+        try (Session session = sessionFactory.openSession()) {
+            Query<User> getUserByIdQuery = session.createQuery("FROM User u "
+                    + "WHERE u.id = :id", User.class);
+            getUserByIdQuery.setParameter("id", id);
+            return getUserByIdQuery.uniqueResultOptional();
+        } catch (Exception e) {
+            throw new DataProcessingException("Can't get User by id " + id, e);
         }
     }
 }
