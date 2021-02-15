@@ -5,7 +5,9 @@ import com.dev.cinema.model.dto.request.UserRequestDto;
 import com.dev.cinema.model.dto.response.UserResponseDto;
 import com.dev.cinema.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserMapper {
     private final UserService userService;
 
