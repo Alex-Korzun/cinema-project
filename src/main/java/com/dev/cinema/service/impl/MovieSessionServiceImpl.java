@@ -38,7 +38,7 @@ public class MovieSessionServiceImpl implements MovieSessionService {
     }
 
     @Override
-    public MovieSession delete(MovieSession movieSession) {
-        return movieSessionDao.delete(movieSession);
+    public MovieSession delete(Long id) {
+        return movieSessionDao.delete(id);
     }
 }
