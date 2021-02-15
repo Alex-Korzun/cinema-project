@@ -16,7 +16,7 @@ public class OrderMapper {
         orderResponseDto.setTicketIds(order.getTickets()
                 .stream()
                 .map(Ticket::getId)
-        .collect(Collectors.toList()));
+                .collect(Collectors.toList()));
         return orderResponseDto;
     }
 }
