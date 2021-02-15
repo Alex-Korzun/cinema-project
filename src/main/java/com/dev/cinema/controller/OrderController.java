@@ -1,20 +1,18 @@
 package com.dev.cinema.controller;
 
-import com.dev.cinema.model.ShoppingCart;
 import com.dev.cinema.model.dto.response.OrderResponseDto;
 import com.dev.cinema.service.OrderService;
 import com.dev.cinema.service.ShoppingCartService;
 import com.dev.cinema.service.UserService;
 import com.dev.cinema.service.mapper.OrderMapper;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/orders")
@@ -38,7 +36,8 @@ public class OrderController {
     @PostMapping("/complete")
     public OrderResponseDto complete(@RequestParam Long id) {
         return orderMapper
-                .toDto(orderService.completeOrder(shoppingCartService.getByUser(userService.get(id))));
+                .toDto(orderService.completeOrder(shoppingCartService
+                        .getByUser(userService.get(id))));
     }
 
     @GetMapping
