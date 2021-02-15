@@ -98,7 +98,7 @@ public class MovieSessionDaoImpl implements MovieSessionDao {
     }
 
     @Override
-    public MovieSession delete(Long id) {
+    public void delete(Long id) {
         Transaction transaction = null;
         Session session = null;
         try {
@@ -107,7 +107,6 @@ public class MovieSessionDaoImpl implements MovieSessionDao {
             MovieSession movieSession = session.load(MovieSession.class, id);
             session.delete(movieSession);
             transaction.commit();
-            return movieSession;
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
