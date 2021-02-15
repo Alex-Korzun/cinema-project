@@ -11,14 +11,14 @@ public class MovieMapper {
         MovieResponseDto movieResponseDto = new MovieResponseDto();
         movieResponseDto.setId(movie.getId());
         movieResponseDto.setTitle(movieResponseDto.getTitle());
-        movieResponseDto.setDescription(movieResponseDto.getDescription());
+        movieResponseDto.setDescription(movie.getDescription());
         return movieResponseDto;
     }
 
     public Movie fromDto(MovieRequestDto movieRequestDto) {
         Movie movie = new Movie();
         movie.setTitle(movieRequestDto.getTitle());
-        movie.setDescription(movie.getDescription());
+        movie.setDescription(movieRequestDto.getDescription());
         return movie;
     }
 }
