@@ -7,11 +7,6 @@ public class EmailValidationImpl implements ConstraintValidator<EmailValidation,
     private static final String REGEX = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
 
     @Override
-    public void initialize(EmailValidation constraintAnnotation) {
-
-    }
-
-    @Override
     public boolean isValid(String email, ConstraintValidatorContext constraintValidatorContext) {
         return email != null && email.matches(REGEX);
     }
