@@ -9,6 +9,7 @@ public class UserRequestDto {
     private String email;
     @NotNull
     private String password;
+    private String repeatPassword;
 
     public String getEmail() {
         return email;
