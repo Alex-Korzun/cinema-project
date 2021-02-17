@@ -1,7 +1,11 @@
 package com.dev.cinema.model.dto.request;
 
+import javax.validation.constraints.NotNull;
+
 public class UserRequestDto {
+    @NotNull
     private String email;
+    @NotNull
     private String password;
 
     public String getEmail() {
