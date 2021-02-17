@@ -1,13 +1,18 @@
 package com.dev.cinema.model.dto.request;
 
 import com.dev.cinema.validation.EmailValidation;
+import com.dev.cinema.validation.PasswordValidation;
 
-import javax.validation.constraints.NotNull;
-
+@PasswordValidation.List({
+        @PasswordValidation(
+                field = "password",
+                fieldMatch = "repeatPassword",
+                message = "Passwords do not match!"
+        )
+})
 public class UserRequestDto {
     @EmailValidation
     private String email;
-    @NotNull
     private String password;
     private String repeatPassword;
 
@@ -25,5 +30,13 @@ public class UserRequestDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 }
