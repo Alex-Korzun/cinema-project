@@ -11,7 +11,6 @@ import javax.validation.Payload;
 @Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PasswordValidation {
-
     String message() default "Passwords don't match!";
 
     String field();
