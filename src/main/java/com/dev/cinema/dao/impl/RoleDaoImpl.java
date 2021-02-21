@@ -4,7 +4,6 @@ import com.dev.cinema.dao.RoleDao;
 import com.dev.cinema.exception.DataProcessingException;
 import com.dev.cinema.model.Role;
 import com.dev.cinema.model.Roles;
-import com.dev.cinema.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
