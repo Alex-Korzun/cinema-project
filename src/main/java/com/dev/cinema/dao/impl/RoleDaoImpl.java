@@ -3,6 +3,7 @@ package com.dev.cinema.dao.impl;
 import com.dev.cinema.dao.RoleDao;
 import com.dev.cinema.exception.DataProcessingException;
 import com.dev.cinema.model.Role;
+import com.dev.cinema.model.Roles;
 import com.dev.cinema.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -47,7 +48,7 @@ public class RoleDaoImpl implements RoleDao {
         try (Session session = sessionFactory.openSession()) {
             Query<Role> getRoleByNameQuery = session.createQuery("FROM Role r "
                     + "WHERE r.roleName = :roleName", Role.class);
-            getRoleByNameQuery.setParameter("roleName", roleName);
+            getRoleByNameQuery.setParameter("roleName", Roles.valueOf(roleName));
             return getRoleByNameQuery.getSingleResult();
         } catch (Exception e) {
             throw new DataProcessingException("Can't get Role by name " + roleName, e);

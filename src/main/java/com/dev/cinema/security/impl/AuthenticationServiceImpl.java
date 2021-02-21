@@ -1,5 +1,6 @@
 package com.dev.cinema.security.impl;
 
+import com.dev.cinema.model.Roles;
 import com.dev.cinema.model.User;
 import com.dev.cinema.security.AuthenticationService;
 import com.dev.cinema.service.RoleService;
@@ -28,7 +29,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
-        user.setRole(roleService.getRoleByName("USER"));
+        user.setRole(roleService.getRoleByName(String.valueOf(Roles.USER)));
         User registeredUser = userService.add(user);
         shoppingCartService.registerNewShoppingCart(registeredUser);
         return registeredUser;
