@@ -1,6 +1,5 @@
 package com.dev.cinema.model.dto.request;
 
-import com.dev.cinema.model.Role;
 import com.dev.cinema.validation.EmailValidation;
 import com.dev.cinema.validation.PasswordValidation;
 
