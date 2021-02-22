@@ -7,15 +7,15 @@ import com.dev.cinema.service.RoleService;
 import com.dev.cinema.service.UserService;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
-@Controller
-public class Injector {
+@Component
+public class DataInitializer {
     private final RoleService roleService;
     private final UserService userService;
 
     @Autowired
-    public Injector(RoleService roleService, UserService userService) {
+    public DataInitializer(RoleService roleService, UserService userService) {
         this.roleService = roleService;
         this.userService = userService;
     }

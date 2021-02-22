@@ -16,7 +16,6 @@ public class UserRequestDto {
     private String email;
     private String password;
     private String repeatPassword;
-    private Role role;
 
     public String getEmail() {
         return email;
@@ -40,13 +39,5 @@ public class UserRequestDto {
 
     public void setRepeatPassword(String repeatPassword) {
         this.repeatPassword = repeatPassword;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 }

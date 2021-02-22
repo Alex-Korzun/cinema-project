@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -18,7 +19,7 @@ public class User {
     private String email;
     private String password;
     @ManyToOne
-    private Role role;
+    private Set<Role> roles;
 
     public Long getId() {
         return id;
@@ -44,12 +45,12 @@ public class User {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     @Override
