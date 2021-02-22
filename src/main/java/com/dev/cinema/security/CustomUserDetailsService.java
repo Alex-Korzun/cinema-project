@@ -1,6 +1,5 @@
 package com.dev.cinema.security;
 
-import com.dev.cinema.model.Role;
 import com.dev.cinema.model.User;
 import com.dev.cinema.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +25,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         UserBuilder builder = null;
         builder.username(user.getEmail());
         builder.password(user.getPassword());
-        builder.authorities(String.valueOf(user.getRoles()
+        builder.authorities(user.getRoles()
                 .stream()
-                .map(Role::getRoleName)));
+                .map(r -> r.getRoleName().name())
+                .toArray(String[]::new));
         return builder.build();
     }
 }
