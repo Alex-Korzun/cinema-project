@@ -9,6 +9,8 @@ import com.dev.cinema.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final UserService userService;
@@ -29,7 +31,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
-        user.setRole(roleService.getRoleByName(String.valueOf(Roles.USER)));
+        user.setRoles(Set.of(roleService.getRoleByName(String.valueOf(Roles.USER))));
         User registeredUser = userService.add(user);
         shoppingCartService.registerNewShoppingCart(registeredUser);
         return registeredUser;

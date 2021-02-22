@@ -11,6 +11,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public class RoleDaoImpl implements RoleDao {
     private final SessionFactory sessionFactory;
@@ -43,12 +45,12 @@ public class RoleDaoImpl implements RoleDao {
     }
 
     @Override
-    public Role getRoleByName(String roleName) {
+    public Optional<Role> getRoleByName(String roleName) {
         try (Session session = sessionFactory.openSession()) {
             Query<Role> getRoleByNameQuery = session.createQuery("FROM Role r "
                     + "WHERE r.roleName = :roleName", Role.class);
             getRoleByNameQuery.setParameter("roleName", Roles.valueOf(roleName));
-            return getRoleByNameQuery.getSingleResult();
+            return getRoleByNameQuery.uniqueResultOptional();
         } catch (Exception e) {
             throw new DataProcessingException("Can't get Role by name " + roleName, e);
         }

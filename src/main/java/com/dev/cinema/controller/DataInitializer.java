@@ -9,6 +9,8 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Set;
+
 @Component
 public class DataInitializer {
     private final RoleService roleService;
@@ -26,7 +28,7 @@ public class DataInitializer {
         admin.setRoleName(Roles.ADMIN);
         roleService.add(admin);
         User adminUser = new User();
-        adminUser.setRole(admin);
+        adminUser.setRoles(Set.of(admin));
         adminUser.setEmail("admin@gmail.com");
         adminUser.setPassword("admin");
         userService.add(adminUser);
