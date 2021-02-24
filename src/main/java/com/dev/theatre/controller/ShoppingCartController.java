@@ -36,7 +36,7 @@ public class ShoppingCartController {
         this.performanceSessionService = performanceSessionService;
     }
 
-    @PostMapping("/movie-sessions")
+    @PostMapping("/theatre-sessions")
     public void add(Authentication authentication, @RequestParam Long movieSessionId) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String email = userDetails.getUsername();
