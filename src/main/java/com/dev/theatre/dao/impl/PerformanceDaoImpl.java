@@ -46,7 +46,8 @@ public class PerformanceDaoImpl implements PerformanceDao {
     @Override
     public List<Performance> getAll() {
         try (Session session = sessionFactory.openSession()) {
-            Query<Performance> getAllPerformancesQuery = session.createQuery("FROM Performance", Performance.class);
+            Query<Performance> getAllPerformancesQuery = session
+                    .createQuery("FROM Performance", Performance.class);
             return getAllPerformancesQuery.getResultList();
         } catch (Exception e) {
             throw new DataProcessingException("Can't get all Performances", e);

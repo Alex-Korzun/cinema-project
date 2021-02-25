@@ -51,7 +51,8 @@ public class TheatreSessionDaoImpl implements TheatreSessionDao {
         try (Session session = sessionFactory.openSession()) {
             Query<TheatreSession> getAllSessionsQuery =
                     session.createQuery("SELECT ts FROM TheatreSession ts "
-                                    + "LEFT JOIN FETCH ts.theatreStage LEFT JOIN FETCH ts.performance "
+                                    + "LEFT JOIN FETCH ts.theatreStage "
+                                    + "LEFT JOIN FETCH ts.performance "
                                     + "WHERE ts.performance.id = :id_performance "
                                     + "AND DATE_FORMAT (ts.showTime, '%Y-%m-%d') = :date ",
                             TheatreSession.class);

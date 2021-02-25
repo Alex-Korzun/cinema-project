@@ -1,7 +1,7 @@
 package com.dev.theatre.service;
 
-import com.dev.theatre.model.TheatreSession;
 import com.dev.theatre.model.ShoppingCart;
+import com.dev.theatre.model.TheatreSession;
 import com.dev.theatre.model.User;
 
 public interface ShoppingCartService {

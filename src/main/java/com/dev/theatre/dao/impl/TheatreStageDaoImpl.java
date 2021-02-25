@@ -35,7 +35,8 @@ public class TheatreStageDaoImpl implements TheatreStageDao {
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new DataProcessingException("Can't insert Theatre Stage entity " + theatreStage, e);
+            throw new DataProcessingException("Can't insert Theatre Stage entity "
+                    + theatreStage, e);
         } finally {
             if (session != null) {
                 session.close();

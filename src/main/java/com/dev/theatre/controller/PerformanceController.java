@@ -22,7 +22,8 @@ public class PerformanceController {
     private final PerformanceMapper performanceMapper;
 
     @Autowired
-    public PerformanceController(PerformanceService performanceService, PerformanceMapper performanceMapper) {
+    public PerformanceController(PerformanceService performanceService,
+                                 PerformanceMapper performanceMapper) {
         this.performanceService = performanceService;
         this.performanceMapper = performanceMapper;
     }
